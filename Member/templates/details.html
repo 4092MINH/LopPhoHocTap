@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
     <title>{{x.ho}} {{x.ten}}</title>
 </head>
 <style>
-    /* 1. Cài đặt chung */
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6; /* Nền xám nhạt */
+        background-color: #f4f7f6; 
         margin: 0;
         padding: 20px;
     }
@@ -19,23 +20,18 @@
         text-align: center;
         margin-bottom: 30px;
     }
-
-    /* Tạo khung chứa nội dung ở giữa */
     .container {
         max-width: 800px;
         margin: 0 auto;
         background: white;
         padding: 30px;
-        border-radius: 10px; /* Bo tròn góc */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Tạo bóng đổ nổi lên */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
     }
-
-    /* 2. Trang trí danh sách (Chuyển ul li thành các hộp) */
     ul {
-        list-style-type: none; /* Bỏ chấm tròn */
+        list-style-type: none;
         padding: 0;
     }
-
     li {
         background: #fff;
         border-bottom: 1px solid #eee;
@@ -46,8 +42,8 @@
     }
 
     li:hover {
-        background-color: #e8f4ff; /* Rê chuột vào đổi màu xanh nhạt */
-        padding-left: 20px; /* Hiệu ứng đẩy nhẹ sang phải */
+        background-color: #e8f4ff; 
+        padding-left: 20px;
     }
     .detail-card {
         border: 1px solid #ddd;
@@ -67,8 +63,6 @@
         width: 100px;
         display: inline-block;
     }
-
-    /* Điểm số đẹp hơn */
     .score-badge {
         background-color: #3498db;
         color: white;
@@ -111,7 +105,7 @@
             <span class="label">Ngữ Văn:</span> 
             <span class="score-badge">{{x.diem_cong_van}}</span>
         </div>
-    </div> <!-- Kết thúc detail-card -->
-</div> <!-- Kết thúc container -->
+    </div> 
+</div> 
 </body>
 </html>
