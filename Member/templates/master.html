@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="images/png" href="{% static 'images/logo.png' %}"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% block cssfile %}
+    {% endblock %}
+
+</head>
+<style>
+    .header-box {
+        display: flex;            
+        align-items: center;       
+        justify-content: center;   
+        margin-bottom: 30px;    
+        gap: 15px;            
+    }
+    .logo-img {
+        height: 50px;            
+        width: auto;             
+        object-fit: contain;
+    }
+    .header-box h1 {
+        margin: 0;             
+        color: #2c3e50;  
+        font-size: 28px;   
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6; 
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    h1 a{
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        display: block;
+        width: 100%; 
+    }
+</style>
+<body>
+    <div class="header-box">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img">
+        <a href = "/"><h1>Trang quản lý học sinh</h1></a>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

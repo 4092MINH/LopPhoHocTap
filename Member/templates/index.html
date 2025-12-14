@@ -1,103 +1,23 @@
+{% extends "master.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
-    <title>Quản lý học sinh</title>
-</head>
-<style>
-    .header-box {
-        display: flex;            
-        align-items: center;       
-        justify-content: center;   
-        margin-bottom: 30px;    
-        gap: 15px;            
-    }
-    .logo-img {
-        height: 50px;            
-        width: auto;             
-        object-fit: contain;
-    }
-    .header-box h1 {
-        margin: 0;             
-        color: #2c3e50;  
-        font-size: 28px;   
-    }
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6; 
-        margin: 0;
-        padding: 20px;
-    }
-
-    h1 {
-        color: #2c3e50;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        padding: 30px;
-        border-radius: 10px; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    li {
-        background: #fff;
-        border-bottom: 1px solid #eee;
-        padding: 15px;
-        display: flex;
-        align-items: center;
-        transition: 0.2s; 
-    }
-
-    li:hover {
-        background-color: #e8f4ff; 
-        padding-left: 25px; 
-        cursor: pointer;
-    }
-
-    li a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        display: block;
-        width: 100%; 
-    }    
-    .detail-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; background: #fff; }
-    .info-row { margin-bottom: 15px; font-size: 16px; }
-    .label { font-weight: bold; color: #555; width: 100px; display: inline-block; }
-    .score-badge { background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em; margin-left: 10px; }
-</style>
-<body>
-
-     <div class="header-box">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img">
-        <h1>Trang quản lý học sinh</h1>
-     </div>
+{% block cssfile %}
+    <link rel="stylesheet" href="{% static 'style/index.css' %}">
+{% endblock %}
+{% block title %}
+    Quản lý học sinh
+{% endblock %}
+{% block content %}
     <div class="container">
-        
         <h2 style="margin-top: 0; color: #555; border-bottom: 2px solid #eee; padding-bottom: 10px;">
             Danh sách học sinh
         </h2>
         <ul>
             {% for x in members %}
                 <li>
-                   <a href="details/{{x.slug}}">{{x.student_id}} - {{x.ho}} {{x.ten}}</a> 
+                    <a href="details/{{x.slug}}">{{x.student_id}} - {{x.ho}} {{x.ten}}</a> 
                 </li>
             {% endfor %}
         </ul>
 
     </div>
-
-</body>
-</html>
+{% endblock %}

@@ -1,111 +1,45 @@
+{% extends 'master.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/>
-    <title>{{x.ho}} {{x.ten}}</title>
-</head>
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6; 
-        margin: 0;
-        padding: 20px;
-    }
-
-    h1 {
-        color: #2c3e50;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        background: #fff;
-        border-bottom: 1px solid #eee;
-        padding: 15px;
-        display: flex;
-        align-items: center;
-        transition: 0.2s;
-    }
-
-    li:hover {
-        background-color: #e8f4ff; 
-        padding-left: 20px;
-    }
-    .detail-card {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 20px;
-        background: #fff;
-    }
-
-    .info-row {
-        margin-bottom: 15px;
-        font-size: 16px;
-    }
-
-    .label {
-        font-weight: bold;
-        color: #555;
-        width: 100px;
-        display: inline-block;
-    }
-    .score-badge {
-        background-color: #3498db;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 15px;
-        font-size: 0.9em;
-        margin-left: 10px;
-    }
-</style>
-<body>
-<div class="container">
-    
-    <h1>Detail Information</h1>
-    <div class="detail-card">
-        <h2 style="text-align: center; color: #333;">{{x.ho}} {{x.ten}}</h2>
-        <div class="info-row">
-            <span class="label">MSHS:</span> 
-            <span>{{x.student_id}}</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Họ:</span> 
-            <span>{{x.ho}}</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Tên:</span> 
-            <span>{{x.ten}}</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Giới tính:</span> 
-            <span>{{x.gender}}</span>
-        </div>
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-        <h3 style="margin-bottom: 15px;">Điểm cộng:</h3>
-        <div class="info-row">
-            <span class="label">Tiếng Anh:</span> 
-            <!-- Thêm class score-badge cho điểm số -->
-            <span class="score-badge">{{x.diem_cong_anh}}</span>
-        </div>
-        <div class="info-row">
-            <span class="label">Ngữ Văn:</span> 
-            <span class="score-badge">{{x.diem_cong_van}}</span>
-        </div>
+{% block cssfile %}
+    <link rel="stylesheet" href="{% static 'style/details.css' %}">
+{% endblock %}
+{% block title %}
+    {{x.ho}} {{x.ten}}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        
+        <h1>Detail Information</h1>
+        <div class="detail-card">
+            <h2 style="text-align: center; color: #333;">{{x.ho}} {{x.ten}}</h2>
+            <div class="info-row">
+                <span class="label">MSHS:</span> 
+                <span>{{x.student_id}}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Họ:</span> 
+                <span>{{x.ho}}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Tên:</span> 
+                <span>{{x.ten}}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Giới tính:</span> 
+                <span>{{x.gender}}</span>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <h3 style="margin-bottom: 15px;">Điểm cộng:</h3>
+            <div class="info-row">
+                <span class="label">Tiếng Anh:</span> 
+                <!-- Thêm class score-badge cho điểm số -->
+                <span class="score-badge">{{x.diem_cong_anh}}</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Ngữ Văn:</span> 
+                <span class="score-badge">{{x.diem_cong_van}}</span>
+            </div>
+        </div> 
     </div> 
-</div> 
-</body>
-</html>
+    </body>
+{% endblock %}
