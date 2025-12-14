@@ -15,3 +15,5 @@ Cho một cái map **bất kì** và các ràng buộc. Hãy tạo chương trì
 **Đầu vào:** Map và các điều kiện ràng buộc. Cụ thể các ràng buộc ở đây có thể là các khối lệnh được sử dụng
 
 **Đầu ra:** Chương trình hay hàm hay là chuỗi các câu lệnh để giải quyết bài toán một cách tối ưu
+
+## CÁC CÂU LỆNH TRONG JS
