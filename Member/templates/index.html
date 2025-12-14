@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản lý điểm cộng</title>
+</head>
+<body>
+    <h1>Danh sách học sinh</h1>
+    <ul>
+        {% for x in members %}
+            <!-- Thêm dòng này để test xem x có dữ liệu gì không -->
+            <li><a href="details/{{x.slug}}">{{x.student_id}} - {{x.ho}} {{x.ten}}</a></li> 
+        {% empty %}
+            <!-- Nếu database rỗng, dòng này sẽ hiện ra -->
+            <li>Hiện chưa có dữ liệu học sinh nào trong Database.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
