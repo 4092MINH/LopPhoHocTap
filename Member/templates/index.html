@@ -1,20 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang quản lý điểm cộng</title>
+    <title>Quản lý học sinh</title>
+    
+    <!-- ĐOẠN CSS BẠN ĐÃ CHỌN -->
+    <style>
+        /* 1. Cài đặt chung */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6; /* Nền xám nhạt */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Tạo khung chứa nội dung ở giữa */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px; /* Bo tròn góc */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Tạo bóng đổ nổi lên */
+        }
+
+        /* 2. Trang trí danh sách */
+        ul {
+            list-style-type: none; /* Bỏ chấm tròn */
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+            display: flex; /* Giúp căn chỉnh nội dung bên trong */
+            align-items: center;
+            transition: 0.2s; /* Tạo độ mượt khi đổi màu/di chuyển */
+        }
+
+        /* Hiệu ứng đặc biệt trong CSS của bạn: Đẩy sang phải khi rê chuột */
+        li:hover {
+            background-color: #e8f4ff; 
+            padding-left: 25px; 
+            cursor: pointer;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: block;
+            width: 100%; /* Bấm vào đâu trên dòng cũng được */
+        }
+        
+        /* CSS cho trang chi tiết (để sẵn đây khi nào dùng thì dùng) */
+        .detail-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; background: #fff; }
+        .info-row { margin-bottom: 15px; font-size: 16px; }
+        .label { font-weight: bold; color: #555; width: 100px; display: inline-block; }
+        .score-badge { background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em; margin-left: 10px; }
+    </style>
 </head>
+
 <body>
-    <h1>Danh sách học sinh</h1>
-    <ul>
-        {% for x in members %}
-            <!-- Thêm dòng này để test xem x có dữ liệu gì không -->
-            <li><a href="details/{{x.slug}}">{{x.student_id}} - {{x.ho}} {{x.ten}}</a></li> 
-        {% empty %}
-            <!-- Nếu database rỗng, dòng này sẽ hiện ra -->
-            <li>Hiện chưa có dữ liệu học sinh nào trong Database.</li>
-        {% endfor %}
-    </ul>
+
+    <!-- Tiêu đề lớn nằm ngoài khung -->
+    <h1>Trang quản lý học sinh</h1>
+
+    <!-- KHUNG CHÍNH (.container) -->
+    <div class="container">
+        
+        <h2 style="margin-top: 0; color: #555; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+            Danh sách học sinh
+        </h2>
+
+        <!-- DANH SÁCH HỌC SINH -->
+        <ul>
+            {% for x in members %}
+                <li>
+                   <a href="details/{{x.slug}}">{{x.student_id}} - {{x.ho}} {{x.ten}}</a> 
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
 </body>
 </html>
