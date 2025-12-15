@@ -8,9 +8,16 @@
     <title>{% block title %}{% endblock %}</title>
     {% block cssfile %}
     {% endblock %}
-
 </head>
 <style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    }
     .header-box {
         display: flex;            
         align-items: center;       
@@ -40,6 +47,7 @@
         margin-bottom: 30px;
     }
     h1 a{
+        font-style: 900;
         text-decoration: none;
         color: #333;
         font-weight: 500;
@@ -50,7 +58,7 @@
 <body>
     <div class="header-box">
         <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img">
-        <a href = "/"><h1>Trang quản lý học sinh</h1></a>
+        <h1><a href = "/"><b>Trang quản lý học sinh</b></a></h1>
     </div>
     {% block content %}
     {% endblock %}
