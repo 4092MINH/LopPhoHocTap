@@ -9,10 +9,10 @@ class Member(models.Model):
     diem_cong_van = models.IntegerField(default=0, verbose_name='Điểm cộng Văn')
     slug = models.SlugField(unique=True)
     class Gender(models.TextChoices):
-        MALE = 'M', 'Nam'
-        FEMALE = 'F', 'Nữ'
+        MALE = 'Nam', 'Nam' # Trai la cho database phai la hien thi trong admin
+        FEMALE = 'Nữ', 'Nữ'
     gender = models.CharField(
-        max_length=2,
+        max_length=3,
         choices=Gender.choices,
         default=Gender.MALE,
         verbose_name='Giới tính'
