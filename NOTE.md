@@ -479,7 +479,14 @@ LIÊN KẾT VỚI CÁC TRANG KHÁC
     </div>
 {% endblock %}
 ```
+FORM TRONG DJANGO
+=
 
+STATIC AND MEDIA FILE
+=
+
+POST AND GET REQUEST
+=
 
 
 CÁCH DEPLOY DỰ ÁN
