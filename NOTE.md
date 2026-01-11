@@ -5,7 +5,6 @@ SETUP DJANGO
 
 *Nguồn: [W3S](https://www.w3schools.com/django/index.php) và [Django Documentation](https://docs.djangoproject.com/en/6.0/intro/)*
 
-
 CÁC LỆNH CHECK PHIÊN BẢN
 ----------------------------
 
@@ -421,13 +420,16 @@ Ta chỉnh sửa như sau. Cụ thể, ta thêm một cái `<a>` với đường
 </body>
 </html>
 ```
+
 CÁCH TẠO MỘT TRANG PAGE KHUNG
-=
+================================
+
 TẠO PAGE KHUNG
--
+---------------
 
 - Đầu tiên, ta tạo một file `master.html` và thiết lập sẵn những cấu hình cần thiết.
 - Sẽ có một số chỗ ta phải thay đổi thì ta dùng `{% block <content> %}` với `<content>` là tag ta gán
+
 ```html
 <!DOCTYPE html>
 <html lang="vi">
@@ -449,11 +451,15 @@ TẠO PAGE KHUNG
 </body>
 </html>
 ```
+
 LIÊN KẾT VỚI CÁC TRANG KHÁC
--
-Để dùng được file này ở các trang web, 
-- ở mỗi trang web ta thêm `{% extends 'master.html'}` 
+--------------------------------
+
+Để dùng được file này ở các trang web,
+
+- ở mỗi trang web ta thêm `{% extends 'master.html'}`
 - Và ta bắt đầu điền các block tương ứng như sau
+
 ```html
 {% extends "master.html" %}
 {% load static %}
@@ -479,13 +485,58 @@ LIÊN KẾT VỚI CÁC TRANG KHÁC
     </div>
 {% endblock %}
 ```
+
 FORM TRONG DJANGO
-=
+=================
+
+REDIRECT AFTER FORM SUBMISSION
+------------------------------
 
 STATIC AND MEDIA FILE
-=
-
+=====================
 
 POST AND GET REQUEST
-=
+====================
 
+CÁCH TRANG TRÍ ADMIN
+=====================
+TẢI `JAZZMIN` VỀ
+---------------------
+```
+pip install  django-jazzmin
+```
+THÊM VÀO `INSTALLED_APPS` TRONG `settings.py`
+----
+```py
+INSTALLED_APPS = [
+    'jazzmin',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    ...
+]
+```
+CẤU HÌNH GIAO DIỆN
+---------------------
+```py
+JAZZMIN_SETTINGS = {
+    "site_title": "Quản lý học sinh",
+    "site_header": "Hệ thống quản lý học sinh",
+    "site_brand": "Student Admin",
+    "welcome_sign": "Chào mừng bạn",
+    "theme": "darkly",
+
+    "topmenu_links": [
+        {"name": "Trang chủ", "url": "/", "new_window": False},
+    ],
+
+    "icons": {
+        "Member.member": "fas fa-user-graduate",
+        "Member.updateplus": "fas fa-plus-circle",
+    },
+}
+```
+# THÊM
+
+- Dấu cộng
+- Thả xuống trong mã số học sinh
+- Lọc tên

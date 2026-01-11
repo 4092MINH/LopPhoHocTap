@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Member
+from .models import Member, UpdatePlus
 # Register your models here.
 # minhpnk - Homnayemdotnha@23
 admin.site.site_header = "Hệ thống quản lý học sinh"
@@ -11,5 +11,7 @@ class MemberAdmin(admin.ModelAdmin):
     search_fields = ['ten', 'student_id']
     sort_fields = ['ten', 'student_id', 'diem_cong_van', 'diem_cong_anh']
     prepopulated_fields = {'slug': ('ten',)} # Auto-generate slug from name field
-
+class UpdatePlusAdmin(admin.ModelAdmin):
+    list_display = ['ten', 'ho', 'student_id', 'additional_english_points', 'additional_literature_points', 'reason']
 admin.site.register(Member, MemberAdmin)
+admin.site.register(UpdatePlus, UpdatePlusAdmin)

@@ -1,0 +1,90 @@
+.page-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 1000px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Form layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Input */
+input, textarea {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/ contrast */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #1e3a5f;
+}
+
+/* Button */
+.form-actions {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.btn-primary {
+    background: #1e3a5f;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #162c47;
+}

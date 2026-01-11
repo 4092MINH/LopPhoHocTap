@@ -14,6 +14,7 @@
 **ClassMate** là một ứng dụng web được thiết kế đặc biệt để phục vụ công tác quản lý của các lớp chuyên, nơi khối lượng công việc và áp lực học tập cao đòi hỏi sự chính xác và công bằng. Dự án này giúp số hóa các công việc thủ công (như ghi sổ tay, file Excel rời rạc), giúp Ban cán sự tiết kiệm thời gian và giúp các thành viên trong lớp dễ dàng theo dõi tình hình cá nhân.
 
 ## ✨ Tính năng chính
+
 > [!Caution]
 > Nhiều tính năng trong số này chỉ là dự tính, vẫn đang phát triển
 
@@ -97,8 +98,10 @@ Dự án luôn hoan nghênh sự đóng góp từ các bạn trong lớp (đặc
 * Dự án cam kết không thu thập dữ liệu cá nhân ngoài mục đích quản lý lớp.
 
 ---
+
 KẾT
--
+----
+
 - Chúc công việc các bạn lớp phó nhẹ nhàng hơn nhờ trang web này
 - Trang web chỉ đang trong giai đoạn thử nghiệm
 - Dự án được phát triển bởi @4092MINH

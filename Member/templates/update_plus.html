@@ -1,11 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "master.html" %}
+{% load static %}
+{% block cssfile %}
+    <link rel="stylesheet" href="{% static 'style/update.css' %}">
+{% endblock %}
+{% block title %}
+    Cập nhật điểm cộng học sinh
+{% endblock %}
+{% block content %}
+<div class="page-wrapper">
+    <div class="card">
+        <h2 class="card-title">Chỉnh sửa điểm cộng</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Mã số học sinh</label>
+                {{ form.student_id }}
+            </div>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Họ</label>
+                    {{ form.ho }}
+                </div>
+
+                <div class="form-group">
+                    <label>Tên</label>
+                    {{ form.ten }}
+                </div>
+                <div class="form-group">
+                    <label>Điểm cộng thêm Anh</label>
+                    {{ form.additional_english_points }}
+                </div>
+
+                <div class="form-group">
+                    <label>Điểm cộng thêm Văn</label>
+                    {{ form.additional_literature_points }}
+                </div>
+
+                <div class="form-group full">
+                    <label>Lý do cập nhật điểm</label>
+                    {{ form.reason }}
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a href="suceess/"><button type="submit" class="btn-primary">
+                    Cập nhật
+                </button></a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
