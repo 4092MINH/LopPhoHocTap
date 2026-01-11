@@ -457,8 +457,9 @@ LIÊN KẾT VỚI CÁC TRANG KHÁC
 
 Để dùng được file này ở các trang web,
 
-- ở mỗi trang web ta thêm `{% extends 'master.html'}`
-- Và ta bắt đầu điền các block tương ứng như sau
+ở mỗi trang web ta thêm `{% extends 'master.html'}`
+
+Và ta bắt đầu điền các block tương ứng như sau
 
 ```html
 {% extends "master.html" %}
@@ -488,25 +489,116 @@ LIÊN KẾT VỚI CÁC TRANG KHÁC
 
 FORM TRONG DJANGO
 =================
+Ta chỉ cần tạo một model và tạo một form tương ứng với model đó trong file `forms.py` bằng cách sau
 
+```py
+from django import forms
+from .models import UpdatePlus
+class MemberUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UpdatePlus
+        fields = ['ho', 'ten', 'student_id', 'additional_english_points', 'additional_literature_points', 'reason']  # Adjust fields as necessary
+```
+Và trong views ta làm như sau
+
+```py
+from django.shortcuts import render, redirect
+from Member.forms import MemberUpdateForm
+def update_form(request):
+    if request.method == 'POST': # Đây là khi gửi lệnh POST (Hay lệnh submit)
+        form = MemberUpdateForm(request.POST) # Tạo một form từ dữ liệu gửi lên
+        if form.is_valid(): # Kiểm tra tính hợp lệ của form
+            form.save() # Lưu dữ liệu vào database
+            return redirect('success_page')  # Redirect to a success page after submission
+    else:
+        form = MemberUpdateForm() # Tạo một form rỗng cho GET request
+    return render(request, 'update_plus.html', {'form': form})
+```
+Thật đúng khi nói rằng viewas xử lý cả GET và POST request và các logic để hiển thị form và lưu dữ liệu
+
+CÁCH TẠO TEMPLATE CHO FORM
+----------------------------
+
+```html
+{% extends "master.html" %}
+{% load static %}
+{% block cssfile %}
+    <link rel="stylesheet" href="{% static 'style/form.css' %}">
+{% endblock %}
+{% block title %}
+    Cập nhật điểm cộng
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Cập nhật điểm cộng</h2>
+        <form method="post">
+            {% csrf_token %} <!-- Bảo mật chống tấn công CSRF -->
+            {{ form.as_p }} <!-- Hiển thị form dưới dạng các đoạn văn đơn giản nhất -->
+            <button type="submit">Gửi</button>
+        </form>
+    </div>
+{% endblock %}
+```
+```html
+<form method="post">
+    {% csrf_token %}
+    <label>Mã số học sinh</label>
+    {{ form.student_id }}
+
+    <label>Họ</label>
+    {{ form.ho }} <!-- Đây là cách gọi field trong Django Template -->
+
+    <label>Tên</label>
+    {{ form.ten }}
+    <label>Điểm cộng thêm Anh</label>
+    {{ form.additional_english_points }}
+
+    <label>Điểm cộng thêm Văn</label>
+    {{ form.additional_literature_points }}
+
+    <label>Lý do cập nhật điểm</label>
+    {{ form.reason }}
+
+    <a href="suceess/"><button type="submit" class="btn-primary">
+        Cập nhật
+    </button></a>
+</form>
+```
 REDIRECT AFTER FORM SUBMISSION
 ------------------------------
+Trong view ta dùng hàm `redirect()` để chuyển hướng sau khi form được submit thành công
+
+```py
+from django.shortcuts import render, redirect
+from Member.forms import MemberUpdateForm
+def update_form(request):
+    if request.method == 'POST':
+        form = MemberUpdateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success_page')  # succeess_page là tên url của trang thành công
+    else:
+        form = MemberUpdateForm()
+    return render(request, 'update_plus.html', {'form': form})
+```
 
 STATIC AND MEDIA FILE
 =====================
 
-POST AND GET REQUEST
-====================
 
 CÁCH TRANG TRÍ ADMIN
-=====================
+======================
+
 TẢI `JAZZMIN` VỀ
----------------------
+---------
+
 ```
 pip install  django-jazzmin
 ```
+
 THÊM VÀO `INSTALLED_APPS` TRONG `settings.py`
-----
+------------------
+
 ```py
 INSTALLED_APPS = [
     'jazzmin',
@@ -515,8 +607,10 @@ INSTALLED_APPS = [
     ...
 ]
 ```
+
 CẤU HÌNH GIAO DIỆN
 ---------------------
+
 ```py
 JAZZMIN_SETTINGS = {
     "site_title": "Quản lý học sinh",
@@ -535,6 +629,7 @@ JAZZMIN_SETTINGS = {
     },
 }
 ```
+
 # THÊM
 
 - Dấu cộng
