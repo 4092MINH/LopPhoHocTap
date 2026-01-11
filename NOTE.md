@@ -559,9 +559,9 @@ CÁCH TẠO TEMPLATE CHO FORM
     <label>Lý do cập nhật điểm</label>
     {{ form.reason }}
 
-    <a href="suceess/"><button type="submit" class="btn-primary">
+    <button type="submit" class="btn-primary">
         Cập nhật
-    </button></a>
+    </button>
 </form>
 ```
 REDIRECT AFTER FORM SUBMISSION
