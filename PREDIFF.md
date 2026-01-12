@@ -1,17 +1,7 @@
----
-title
-Mảng cộng dồn và mảng hiệu (Prefix sum array and difference array)
----
 
 Mảng cộng dồn và mảng hiệu (Prefix sum array and difference array)
 ===
-
----
-
-###### ✍️ Author: 2School Guideline 
-###### 📋 Content:
-[TOC]
-
+> Nguồn : [2School Guideline](https://hackmd.io/@2SchoolGuideline/H1HY_VKbp)
 ---
 
 # Giới thiệu chung
