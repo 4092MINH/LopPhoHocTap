@@ -489,6 +489,7 @@ Và ta bắt đầu điền các block tương ứng như sau
 
 FORM TRONG DJANGO
 =================
+
 Ta chỉ cần tạo một model và tạo một form tương ứng với model đó trong file `forms.py` bằng cách sau
 
 ```py
@@ -499,6 +500,7 @@ class MemberUpdateForm(forms.ModelForm):
         model = UpdatePlus
         fields = ['ho', 'ten', 'student_id', 'additional_english_points', 'additional_literature_points', 'reason']  # Adjust fields as necessary
 ```
+
 Và trong views ta làm như sau
 
 ```py
@@ -514,6 +516,7 @@ def update_form(request):
         form = MemberUpdateForm() # Tạo một form rỗng cho GET request
     return render(request, 'update_plus.html', {'form': form})
 ```
+
 Thật đúng khi nói rằng viewas xử lý cả GET và POST request và các logic để hiển thị form và lưu dữ liệu
 
 CÁCH TẠO TEMPLATE CHO FORM
@@ -539,6 +542,7 @@ CÁCH TẠO TEMPLATE CHO FORM
     </div>
 {% endblock %}
 ```
+
 ```html
 <form method="post">
     {% csrf_token %}
@@ -564,8 +568,10 @@ CÁCH TẠO TEMPLATE CHO FORM
     </button>
 </form>
 ```
+
 REDIRECT AFTER FORM SUBMISSION
 ------------------------------
+
 Trong view ta dùng hàm `redirect()` để chuyển hướng sau khi form được submit thành công
 
 ```py
@@ -584,7 +590,6 @@ def update_form(request):
 
 STATIC AND MEDIA FILE
 =====================
-
 
 CÁCH TRANG TRÍ ADMIN
 ======================
@@ -634,4 +639,6 @@ JAZZMIN_SETTINGS = {
 
 - Dấu cộng
 - Thả xuống trong mã số học sinh
-- Lọc tên
+- lọc tên
+- reset điểm về 0 cho admin
+-
