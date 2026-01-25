@@ -634,8 +634,65 @@ JAZZMIN_SETTINGS = {
     },
 }
 ```
+CUSTOM ADMIN SITE
+=================
+OVERRIDE
+------------
+- Thay thế file gốc của hệ thống thành file cá nhân
+- Django ưu tiên file cá nhân hơn file gốc
+- **Bằng cách:** Đặt tên và đường dẫn trùng với tên và đường dẫn của django
 
-# THÊM
+### Liên kết với setting.py
+```py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # Thêm dòng này
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+Và ở ta tạo `BASE_DIR/templates/admin/base_site.html` 
+
+TẠO THƯ MỤC STATIC
+-----------------------
+Khai báo static trong `settings.py` để sử dụng
+
+```py
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+```
+
+CHỈNH SỬA ADMIN
+-----------------
+Ta chỉnh sửa hai nơi
+1. `BASE_DIR/templates/admin`
+2. `admin.py`
+```py
+admin.site.site_header = "Hệ thống quản lý học sinh"
+admin.site.site_title = "Quản lý học sinh"
+admin.site.index_title = "Chúc một ngày tốt lành"
+```
+```html
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "admin/style/myStyle.css" %}">
+{% endblock %}
+{% block branding %}
+<h1>Quản lý học sinh</h1>
+{% endblock %}
+```
+THÊM
+====
 
 - Dấu cộng
 - Thả xuống trong mã số học sinh

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,56 +40,56 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Member',
 ]
-JAZZMIN_SETTINGS = {
-    "image_path": "static/images/logo.png",
-    "show_ui_builder": True,
-    "site_title": "Quản lý học sinh",
-    "site_header": "Hệ thống quản lý học sinh",
-    "site_brand": "Student Administration",
-    "welcome_sign": "Chào mừng bạn",
-    "theme": "darkly",
-    "dark_mode_theme": "darkly",
-    "topmenu_links": [
-        {"name": "Trang chủ", "url": "/", "new_window": True},
-    ],
+# JAZZMIN_SETTINGS = {
+#     "image_path": "static/images/logo.png",
+#     "show_ui_builder": True,
+#     "site_title": "Quản lý học sinh",
+#     "site_header": "Hệ thống quản lý học sinh",
+#     "site_brand": "Student Administration",
+#     "welcome_sign": "Chào mừng bạn",
+#     "theme": "darkly",
+#     "dark_mode_theme": "darkly",
+#     "topmenu_links": [
+#         {"name": "Trang chủ", "url": "/", "new_window": True},
+#     ],
 
-    "icons": {
-        "Member.member": "fas fa-user-graduate",
-        "Member.updateplus": "fas fa-plus-circle",
-    },
-}
-JAZZMIN_UI_TWEAKS = {
-    "navbar_small_text": False,
-    "footer_small_text": False,
-    "body_small_text": False,
-    "brand_small_text": False,
-    "brand_colour": "navbar-dark",
-    "accent": "accent-info",
-    "navbar": "navbar-primary navbar-dark",
-    "no_navbar_border": False,
-    "navbar_fixed": False,
-    "layout_boxed": False,
-    "footer_fixed": False,
-    "sidebar_fixed": False,
-    "sidebar": "sidebar-dark-success",
-    "sidebar_nav_small_text": False,
-    "sidebar_disable_expand": False,
-    "sidebar_nav_child_indent": False,
-    "sidebar_nav_compact_style": False,
-    "sidebar_nav_legacy_style": True,
-    "sidebar_nav_flat_style": False,
-    "theme": "solar",
-    "dark_mode_theme": None,
-    "button_classes": {
-        "primary": "btn-outline-primary",
-        "secondary": "btn-secondary",
-        "info": "btn-info",
-        "warning": "btn-warning",
-        "danger": "btn-danger",
-        "success": "btn-success"
-    },
-    "actions_sticky_top": False
-}
+#     "icons": {
+#         "Member.member": "fas fa-user-graduate",
+#         "Member.updateplus": "fas fa-plus-circle",
+#     },
+# }
+# JAZZMIN_UI_TWEAKS = {
+#     "navbar_small_text": False,
+#     "footer_small_text": False,
+#     "body_small_text": False,
+#     "brand_small_text": False,
+#     "brand_colour": "navbar-dark",
+#     "accent": "accent-info",
+#     "navbar": "navbar-primary navbar-dark",
+#     "no_navbar_border": False,
+#     "navbar_fixed": False,
+#     "layout_boxed": False,
+#     "footer_fixed": False,
+#     "sidebar_fixed": False,
+#     "sidebar": "sidebar-dark-success",
+#     "sidebar_nav_small_text": False,
+#     "sidebar_disable_expand": False,
+#     "sidebar_nav_child_indent": False,
+#     "sidebar_nav_compact_style": False,
+#     "sidebar_nav_legacy_style": True,
+#     "sidebar_nav_flat_style": False,
+#     "theme": "solar",
+#     "dark_mode_theme": None,
+#     "button_classes": {
+#         "primary": "btn-outline-primary",
+#         "secondary": "btn-secondary",
+#         "info": "btn-info",
+#         "warning": "btn-warning",
+#         "danger": "btn-danger",
+#         "success": "btn-success"
+#     },
+#     "actions_sticky_top": False
+# }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -105,7 +105,7 @@ ROOT_URLCONF = 'LopPhoHocTap.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
