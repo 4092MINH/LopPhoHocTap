@@ -125,8 +125,12 @@ WSGI_APPLICATION = 'LopPhoHocTap.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql', # chon cong nghe luu
+        'NAME': 'qlhs', # ten db
+        'USER': 'minhpnk',
+        'PASSWORD': 'Homnayemdotnha@23', # mk db
+        'HOST': 'localhost', # dia chi may chu db
+        'PORT': '5432', # cong ket noi db
     }
 }
 

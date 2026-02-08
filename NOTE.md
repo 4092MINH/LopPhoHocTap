@@ -691,6 +691,69 @@ admin.site.index_title = "Chúc một ngày tốt lành"
 <h1>Quản lý học sinh</h1>
 {% endblock %}
 ```
+
+POSTGRESQL
+===
+> MK: Như mấy trang OJ
+
+CÁC LỆNH
+---
+### ĐĂNG NHẬP ADMIN CAO NHẤT
+```
+psql -U postgres
+```
+Nó ra `postgres=#` là ngon
+### LỆNH THOÁT
+```
+postgres=# \q
+```
+### TẢI BIÊN DỊCH TỪ DJANGO SANG POSTGRE
+```
+pip install psycopg2-binary
+```
+TẠO DATABASE
+-
+### KHAI BÁO DATABASE CHÍNH TRONG `setting.py`
+```py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql', # chon cong nghe luu
+        'NAME': 'qlhs', # ten db
+        'USER': 'minhpnk',
+        'PASSWORD': 'Homnayemdotnha@23', # mk db
+        'HOST': 'localhost', # dia chi may chu db
+        'PORT': '5432', # cong ket noi db
+    }
+}
+```
+> [!Caution]
+> Đây chỉ mới là khai báo. Django ko có kết nối với postgre đâu
+
+### TẠO DATABASE MỚI 
+Đăng nhập vào psql với lệnh trên rồi làm như sau
+```
+CREATE USER "minhpnk" WITH PASSWORD 'Homnayemdotnha@23';
+```
+Khi tạo user xong đến khi hiện `CREATE ROLE` thì mới tạo database
+```
+CREATE DATABASE qlhs OWNER "minhpnk";
+```
+Khi hiện `CREATE DATABASE` là ok
+
+Cuối cùng là ta `\q` để thoát và chạy lệnh
+```
+python manage.py migrate
+```
+Để tạo bảng trong postgre
+TẠO DATABASE BẰNG TOOL
+-----------------
+1. Tải pgadmin4 về
+2. Tạo server mới
+3. Tạo schema mới
+4. Tạo tables mới
+
+
+
 THÊM
 ====
 
